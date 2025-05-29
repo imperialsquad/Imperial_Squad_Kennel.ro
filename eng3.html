@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imperial Squad - Dachshund Kennel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #fffaf7;
+            color: #2c2c2c;
+        }
+
+        header {
+            background-color: #3e2723;
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem 2rem;
+        }
+
+        header img.logo {
+            height: 120px;
+            margin-bottom: 1rem;
+        }
+
+        .flag {
+            width: 24px;
+            height: 16px;
+            display: inline-block;
+            background-image: url('https://flagcdn.com/ro.svg');
+            background-size: cover;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
+            font-family: 'Playfair Display', serif;
+        }
+
+        header p {
+            font-style: italic;
+            margin: 0.5rem 0 1rem;
+        }
+
+        nav {
+            background-color: #5d4037;
+            text-align: center;
+            padding: 1rem 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            padding: 0.5rem 1rem;
+            font-weight: bold;
+            font-size: 1.1rem;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        nav a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 100%;
+            height: 2px;
+            background-color: #fff;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+
+        nav a:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        section {
+            padding: 3rem 1.5rem;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        section h2 {
+            font-size: 2rem;
+            font-family: 'Playfair Display', serif;
+            color: #3e2723;
+            margin-bottom: 1rem;
+        }
+
+        section p {
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .carousel {
+            position: relative;
+            max-width: 700px;
+            margin: 2rem auto;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .carousel-images {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-images img {
+            width: 100%;
+            flex-shrink: 0;
+        }
+
+        .carousel-buttons {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .carousel-buttons button {
+            background-color: rgba(0,0,0,0.4);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+        }
+
+        footer {
+            background-color: #3e2723;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.9rem;
+            margin-top: 3rem;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        a {
+            color: #5d4037;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <script>
+        let currentIndex = 0;
+        function showSlide(index) {
+            const slides = document.querySelector('.carousel-images');
+            const total = slides.children.length;
+            if (index >= total) currentIndex = 0;
+            else if (index < 0) currentIndex = total - 1;
+            else currentIndex = index;
+            slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+        function nextSlide() {
+            showSlide(currentIndex + 1);
+        }
+        function prevSlide() {
+            showSlide(currentIndex - 1);
+        }
+    </script>
+</head>
+<body onload="showSlide(0)">
+
+<header>
+    <img src="logo.png" alt="Imperial Squad Logo" class="logo">
+    <h1>Imperial Squad <span class="flag" title="Romania"></span></h1>
+    <p>Born from love, passion, and dedication to the Standard Smooth-Haired Dachshund</p>
+</header>
+
+<nav>
+    <a href="#about">Who We Are</a>
+    <a href="#dogs">Our Dachshunds</a>
+    <a href="#litters">Litters</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<section id="about">
+    <h2>Who We Are</h2>
+    <p>Welcome to Imperial Squad, a kennel nestled in the heart of Romania, dedicated to the majestic Standard Smooth-Haired Dachshund. Guided by rigorous standards and a profound affection for the breed, each puppy raised by us carries a piece of our soul.</p>
+</section>
+
+<section id="dogs">
+    <h2>Our Dachshunds</h2>
+    <p>At Imperial Squad, every dog is raised as family. Our puppies descend from prestigious bloodlines, showcasing impeccable temperament and exceptional conformation. They are nurtured with love, socialized early, and prepared for a life filled with affection and adventure.</p>
+    <div class="carousel">
+        <div class="carousel-images">
+            <img src="dogs1.jfif">
+            <img src="dogs2.jfif">
+            <img src="dogs3.jfif">
+            <img src="dogs4.jfif">
+            <img src="dogs5.jfif">
+            <img src="dogs6.jfif">
+        </div>
+        <div class="carousel-buttons">
+            <button onclick="prevSlide()">&#10094;</button>
+            <button onclick="nextSlide()">&#10095;</button>
+        </div>
+    </div>
+</section>
+
+<section id="litters">
+    <h2>Litters</h2>
+    <p>We honor tradition through alphabetical litter naming, ensuring thoughtful and responsible pairings. Each puppy goes home with a pedigree, health card, and microchip—ready to become a loyal companion. Our families are carefully chosen to offer the best future.</p>
+</section>
+
+<section id="contact">
+    <h2>Contact</h2>
+    <p>Interested in upcoming litters or want to join our waiting list? Let’s stay connected:</p>
+    <ul>
+        <li>Email: <a href="mailto:imperialsquadkennel@gmail.com">imperialsquadkennel@gmail.com</a></li>
+        <li>Instagram: <a href="https://www.instagram.com/dachshund_imperialsquad" target="_blank">@dachshund_imperialsquad</a></li>
+        <li>Facebook: <a href="https://www.facebook.com/DachshundStandardImperialSquad" target="_blank">DachshundStandardImperialSquad</a></li>
+    </ul>
+</section>
+
+<footer>
+    &copy; 2025 Imperial Squad Kennel. All rights reserved.
+</footer>
+
+</body>
+</html>
